@@ -1,4 +1,35 @@
 .features {
-  background-color: $color-grey-light-2;
   grid-column: center-start / center-end;
+  margin: 15rem 0;
+
+  // nested grids in action
+  display: grid;
+  //* auto-fit: it simply creates as many tracks as can fit based on the width that we define, for responsive feature
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  // grid-template-columns: repeat(3, 1fr);
+  //* we do not need to declare row 'cause it uses auto as default
+  // grid-template-rows: auto auto;
+  gap: 6rem;
+  align-items: flex-start;
+}
+
+.feature {
+  // Another level of nesting grids
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  row-gap: 1.5rem;
+  column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    // can not use -1 to expand it to the end 'cause -1 only works with impicit rows
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }

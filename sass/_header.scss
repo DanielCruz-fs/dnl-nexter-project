@@ -1,4 +1,57 @@
 .header {
   background-color: $color-grey-dark-1;
   grid-column: full-start / col-end 6;
+  background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)) , url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  display: grid;
+  //* 1fr in rows takes the remaining spaces and allows other rows to be sized automatically
+  grid-template-rows: 1fr min-content 6rem 1fr;
+  //* min-content: the smallest width possible for the column
+  //* max-content: the biggest width possible for the column, without to do any line breaks
+  grid-template-columns: max-content;
+  row-gap: 1.5rem;
+  justify-content: center;
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  //* Without it the button expands to all axis
+  &__btn {
+    align-self: start;
+    justify-self: start;
+  }
+
+  &__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-grey-light-1;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      background-color: currentColor; }
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3rem;
+    justify-items: center;
+
+    img {
+      height: 2.5rem;
+      filter: brightness(70%);
+    }
+  }
 }

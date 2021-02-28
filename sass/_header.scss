@@ -9,10 +9,11 @@
 
   display: grid;
   //* 1fr in rows takes the remaining spaces and allows other rows to be sized automatically
-  grid-template-rows: 1fr min-content 6rem 1fr;
+  grid-template-rows: 1fr min-content minmax(min-content, 6rem) 1fr;
   //* min-content: the smallest width possible for the column
   //* max-content: the biggest width possible for the column, without to do any line breaks
-  grid-template-columns: max-content;
+  //*BOTH THE ABOVE CAN BE RESUME IN: THE SMALLEST/BIGGEST (WIDTH/HEIGHT) POSSIBLE FOR THE (ROW/COLUMN) DEPENDING IN THE CONTEXT WHICH IS USED
+  grid-template-columns: minmax(min-content, max-content);
   row-gap: 1.5rem;
   justify-content: center;
 
@@ -48,9 +49,12 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 3rem;
     justify-items: center;
+    align-items: center;
 
     img {
-      height: 2.5rem;
+      //* When using max keyboard it can mean: CAN BE LESS THAN...
+      max-height: 2.5rem;
+      max-width: 100%;
       filter: brightness(70%);
     }
   }

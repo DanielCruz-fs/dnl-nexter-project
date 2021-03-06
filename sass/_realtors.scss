@@ -9,6 +9,10 @@
   justify-items: center;
   row-gap: 2rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+  }
+
   &__list {
     display: grid;
     //* min-content 'cause the img size is defined and max-content 'cause we do not want any line breaks
@@ -17,6 +21,14 @@
     //* We want it to be according to the current display
     row-gap: 5vh;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__img {
